@@ -3,6 +3,7 @@ package com.foodapp.FoodApp.order.entity;
 import com.foodapp.FoodApp.auth_users.entity.User;
 import com.foodapp.FoodApp.enums.OrderStatus;
 import com.foodapp.FoodApp.enums.PaymentStatus;
+import com.foodapp.FoodApp.payment.entity.Payment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
