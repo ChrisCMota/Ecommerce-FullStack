@@ -1,5 +1,6 @@
 package com.foodapp.FoodApp.cart.entity;
 
+import com.foodapp.FoodApp.menu.entity.Menu;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

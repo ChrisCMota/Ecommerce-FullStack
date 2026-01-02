@@ -3,6 +3,7 @@ package com.foodapp.FoodApp.auth_users.dtos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.foodapp.FoodApp.role.dtos.RoleDTO;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 

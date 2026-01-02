@@ -13,7 +13,7 @@ import java.util.Map;
 public class Response<T> {
 
     private int statusCode;
-    private String name;
+    private String message;
     private T data;
     private Map<String, Serializable> meta;
 
