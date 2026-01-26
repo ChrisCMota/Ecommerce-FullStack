@@ -30,6 +30,15 @@ public class JwtUtils {
         this.key = new SecretKeySpec(keyByte, "HmacSHA256");
     }
 
+    public String generateToken(String email){
+        return Jwts.builder()
+                .subject(email)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(key)
+                .compact();
+    }
+
     public String getUsernameFromToken(String token){
         return extractClaims(token, Claims::getSubject);
     }
