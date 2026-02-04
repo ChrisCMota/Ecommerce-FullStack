@@ -16,7 +16,7 @@ public class FoodAppApplication {
 	}
 
 
-//-- TESTING EMAIL SENDER	
+//-- TESTING EMAIL SENDER
 //	@Bean
 //	CommandLineRunner runner(){
 //		return args -> {
