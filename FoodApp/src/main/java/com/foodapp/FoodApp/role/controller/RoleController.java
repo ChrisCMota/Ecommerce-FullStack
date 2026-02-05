@@ -24,7 +24,7 @@ public class RoleController {
         return ResponseEntity.ok(roleService.createRole(roleDTO));
     }
 
-    @PostMapping("/update")
+    @PutMapping()
     public ResponseEntity<Response<RoleDTO>> updateRole(@RequestBody @Valid RoleDTO roleDTO){
         return ResponseEntity.ok(roleService.updateRole(roleDTO));
     }
