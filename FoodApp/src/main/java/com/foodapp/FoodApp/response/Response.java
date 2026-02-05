@@ -8,8 +8,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 @Data
-@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Builder
 public class Response<T> {
 
     private int statusCode;
