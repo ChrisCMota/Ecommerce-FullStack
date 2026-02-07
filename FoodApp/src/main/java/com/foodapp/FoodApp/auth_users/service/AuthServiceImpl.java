@@ -64,6 +64,9 @@ public class AuthServiceImpl implements IAuthService{
                 .createdAt(LocalDateTime.now())
                 .build();
 
+        //Save the user
+        userRepository.save(userToSave);
+
         return Response.builder()
                 .statusCode(HttpStatus.OK.value())
                 .message("User registered Successfully")
@@ -72,7 +75,7 @@ public class AuthServiceImpl implements IAuthService{
     }
 
     @Override
-    public Response<?> login(LoginRequest loginRequest) {
+    public Response<LoginResponse> login(LoginRequest loginRequest) {
         log.info("INSIDE login()");
 
         //check user email(login)
@@ -100,7 +103,7 @@ public class AuthServiceImpl implements IAuthService{
         loginResponse.setToken(token);
         loginResponse.setRoles(roleNames);
 
-        return Response.builder()
+        return Response.<LoginResponse>builder()
                 .statusCode(HttpStatus.OK.value())
                 .message("Login Successful")
                 .data(loginResponse)
