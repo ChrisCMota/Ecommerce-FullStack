@@ -80,7 +80,7 @@ public class AuthServiceImpl implements IAuthService{
                 .orElseThrow(() -> new NotFoundException("Invalid Email"));
 
         if(!user.isActive()){
-            throw new NotFoundException("Account not active, Please contact customer support")
+            throw new NotFoundException("Account not active, Please contact customer support");
         }
 
         //verify password
