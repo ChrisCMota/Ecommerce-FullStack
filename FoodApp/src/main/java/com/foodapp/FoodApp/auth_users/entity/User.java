@@ -37,6 +37,8 @@ public class User {
 
     private String phoneNumber;
 
+    private String profileUrl;
+
     private String address;
 
     private boolean isActive;
