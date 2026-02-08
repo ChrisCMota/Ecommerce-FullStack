@@ -44,17 +44,4 @@ public class UserController {
     public ResponseEntity<Response<UserDTO>> getOwnAccountDetails(){
         return ResponseEntity.ok(userService.getOwnAccountDetails());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
