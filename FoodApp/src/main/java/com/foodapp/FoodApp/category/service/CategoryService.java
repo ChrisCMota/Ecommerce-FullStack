@@ -45,6 +45,8 @@ public class CategoryService implements ICategoryService {
         if(categoryDTO.getName() != null && !categoryDTO.getName().isEmpty()) category.setName(categoryDTO.getName());
         if(categoryDTO.getDescription() != null) category.setDescription(categoryDTO.getDescription());
 
+        categoryRepository.save(category);
+
         return Response.<CategoryDTO>builder()
                 .statusCode(HttpStatus.OK.value())
                 .message("Category updated successfully")
