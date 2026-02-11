@@ -201,7 +201,7 @@ public class MenuServiceImpl implements IMenuService{
                                 searchTerm
                         ),
                         cb.like(
-                                cb.lower(root.get("Description")),
+                                cb.lower(root.get("description")),
                                 searchTerm
                         )
                 ));
