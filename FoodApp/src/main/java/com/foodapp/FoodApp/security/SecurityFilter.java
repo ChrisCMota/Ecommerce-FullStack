@@ -34,8 +34,12 @@ public class SecurityFilter {
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .exceptionHandling(ex -> ex.accessDeniedHandler(customAccessDenialHandler).authenticationEntryPoint(customAuthenticationEntryPoint))
-                .authorizeHttpRequests(req -> req.requestMatchers("api/auth/**", "api/categories/**", "api/menu/**", "api/reviews/**").permitAll()
-                        .anyRequest().authenticated())
+                .authorizeHttpRequests(req -> req.requestMatchers("api/auth/**",
+                                                                               "api/categories/**",
+                                                                               "api/menu/**",
+                                                                               "api/reviews/**").permitAll()
+                                                 .anyRequest().authenticated())
+
                 .sessionManagement(mag -> mag.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
 

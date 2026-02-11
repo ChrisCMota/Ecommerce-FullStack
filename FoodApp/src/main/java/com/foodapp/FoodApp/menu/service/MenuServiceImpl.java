@@ -63,6 +63,8 @@ public class MenuServiceImpl implements IMenuService{
                 .category(category)
                 .build();
 
+         menuRepository.save(menu);
+
         return Response.<MenuDTO>builder()
                 .statusCode(HttpStatus.OK.value())
                 .message("Menu created successfully")
