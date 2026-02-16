@@ -3,6 +3,7 @@ package com.foodapp.FoodApp.cart.service;
 import com.foodapp.FoodApp.auth_users.entity.User;
 import com.foodapp.FoodApp.auth_users.service.IUserService;
 import com.foodapp.FoodApp.cart.dtos.CartDTO;
+import com.foodapp.FoodApp.cart.dtos.CartItemDTO;
 import com.foodapp.FoodApp.cart.entity.Cart;
 import com.foodapp.FoodApp.cart.entity.CartItem;
 import com.foodapp.FoodApp.cart.repository.CartItemRepository;
@@ -187,9 +188,9 @@ public class CartServiceImpl implements ICartService {
 
         List<CartItem> cartItems = cart.getCartItems();
 
-//        List<CartItemDTO> cartItemsDTO = cartItems.stream()
-//                .map(cartItem -> modelMapper.map(cartItem, CartItemDTO.class))
-//                .toList();
+        List<CartItemDTO> cartItemsDTO = cartItems.stream()
+                .map(cartItem -> modelMapper.map(cartItem, CartItemDTO.class))
+                .toList();
 
         CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
 
@@ -209,7 +210,13 @@ public class CartServiceImpl implements ICartService {
                     .forEach(item -> item.getMenu().setReviews(null));
         }
 
-//        cartDTO.setCartItems(cartItemsDTO);
+        //calculate number of items in total
+        int numberOfItemsInTotal = 0;
+        for(CartItemDTO item : cartItemsDTO){
+            numberOfItemsInTotal += item.getQuantity();
+        }
+
+        cartDTO.setQuantity(numberOfItemsInTotal);
 
         return Response.<CartDTO>builder()
                 .statusCode(HttpStatus.OK.value())
